@@ -74,6 +74,11 @@ app.get('/test2', (req, res) => {
 
 app.use('/x', routes());
 
+app.get('/*', (req, res) => {
+  console.log('GET *', path.resolve(__dirname, '../client/build/index.html'));
+  res.sendFile(path.resolve(__dirname, '../client/build/index.html'));
+});
+
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mynewsnow", {
   useNewUrlParser: true

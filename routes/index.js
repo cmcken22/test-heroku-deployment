@@ -76,12 +76,7 @@ const routes = () => {
   //   res.sendFile(path.join(__dirname, "../client/public/index.html"));
   // });
   
-  router.use("/api", apiRoutes);
-  
-  router.get('/*', (req, res) => {
-    console.log('GET *', path.resolve(__dirname, '../client/build/index.html'));
-    res.sendFile(path.resolve(__dirname, '../client/build/index.html'));
-  });
+  // router.use("/api", apiRoutes);
 
   return router;
 }
