@@ -75,13 +75,8 @@ router.delete('/logout', (req, res) => {
 router.use("/api", apiRoutes);
 
 router.get('/*', (request, response) => {
-  console.log('__dirname:', __dirname);
-  console.log('1:', path.resolve(__dirname, '../'));
-  console.log('2:', path.resolve(__dirname, '../../'));
-  console.log('3:', path.resolve(__dirname, '../../../'));
-  console.log('4:', path.resolve(__dirname, '../../../../'));
-  console.log('GET *', path.resolve(__dirname, '../../client/build/index.html'));
-	response.sendFile(path.resolve(__dirname, '../../client/build/index.html'));
+  console.log('GET *', path.resolve(__dirname, '../client/build/index.html'));
+	response.sendFile(path.resolve(__dirname, '../client/build/index.html'));
 });
 
 
