@@ -34,6 +34,11 @@ const routes = () => {
     console.log('GET /login');
     res.render('login.ejs');
   })
+
+  router.get('/login2', (req, res) => {
+    console.log('GET /login2');
+    res.sendFile('login.ejs');
+  })
   
   router.post('/login', passport.authenticate('local', {
     successRedirect: '/redirect-to-react',
