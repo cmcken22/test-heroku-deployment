@@ -74,6 +74,7 @@ router.delete('/logout', (req, res) => {
 //   res.sendFile(path.join(__dirname, "../client/public/index.html"));
 // });
 router.get('*', (request, response) => {
+  console.log('GET *', path.join(__dirname, 'client/build', 'index.html'));
 	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
