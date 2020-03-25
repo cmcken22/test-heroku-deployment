@@ -72,7 +72,7 @@ app.get('/test2', (req, res) => {
   res.send("hello");
 });
 
-app.use(routes());
+app.use('/x', routes());
 
 app.get('/*', (req, res) => {
   console.log('GET *', path.resolve(__dirname, '../client/build/index.html'));
