@@ -12,7 +12,7 @@ class App extends Component {
         <div className="App">
           <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
-            <h2>Welcome to MyNewsNow</h2>
+            <h2>Welcome to MyNewsNow REACT</h2>
           </div>
           <Switch>
             <Route exact path="/" component={Startscrape} />
