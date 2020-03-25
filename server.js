@@ -67,12 +67,12 @@ app.get('/', (req, res) => {
   res.render('index.ejs', { name: req.user.name })
 })
 
-app.get('/login', checkNotAuthenticated, (req, res) => {
+app.get('/login', (req, res) => {
   console.log('GET /login');
-  res.render('login.ejs')
+  res.render('login.ejs');
 })
 
-app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
+app.post('/login', passport.authenticate('local', {
   successRedirect: '/redirect-to-react',
   failureRedirect: '/login',
   failureFlash: true
