@@ -64,6 +64,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.get('/test', (req, res) => {
   console.log('GET /test');
   res.render('register.ejs');
+  res.end();
 });
 
 app.get('/test2', (req, res) => {
