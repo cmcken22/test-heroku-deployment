@@ -109,12 +109,6 @@ app.use(express.static(path.join(__dirname, '/public')));
 //   res.redirect('/login')
 // });
 
-app.use(routes);
-
-// // Database configuration
-// var databaseUrl = "mynewsnow";
-// var collections = ["Article"];
-
 app.get('/test', (req, res) => {
   console.log('GET /test');
   res.render('register.ejs');
@@ -124,6 +118,13 @@ app.get('/test2', (req, res) => {
   console.log('GET /test2');
   res.send("hello");
 });
+
+app.use(routes);
+
+// // Database configuration
+// var databaseUrl = "mynewsnow";
+// var collections = ["Article"];
+
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mynewsnow", {
