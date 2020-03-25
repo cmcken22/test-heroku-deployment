@@ -72,7 +72,7 @@ app.get('/test2', (req, res) => {
   res.send("hello");
 });
 
-app.use(routes);
+app.use('/x', routes());
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mynewsnow", {
