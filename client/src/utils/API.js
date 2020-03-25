@@ -9,7 +9,7 @@ export default {
   getArticles: async function() {
     console.clear();
     console.log('GET ARTICLES');
-    console.log("getArticles is being called - inside API.js", await axios.get("/api/articles"));
+    // console.log("getArticles is being called - inside API.js", await axios.get("/api/articles"));
     // return axios.get("/api/articles");
   },
   // Gets the article with the given id
