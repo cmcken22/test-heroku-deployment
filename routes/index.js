@@ -74,10 +74,10 @@ router.delete('/logout', (req, res) => {
 
 router.use("/api", apiRoutes);
 
-router.get('/*', (request, response) => {
-  console.log('GET *', path.resolve(__dirname, '../client/build/index.html'));
-	response.sendFile(path.resolve(__dirname, '../client/build/index.html'));
-});
+// router.get('/*', (request, response) => {
+//   console.log('GET *', path.resolve(__dirname, '../client/build/index.html'));
+// 	response.sendFile(path.resolve(__dirname, '../client/build/index.html'));
+// });
 
 
 module.exports = router;
