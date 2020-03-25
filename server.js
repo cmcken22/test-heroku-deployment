@@ -59,6 +59,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride('_method'));
 
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.get('/test', (req, res) => {
   console.log('GET /test');
