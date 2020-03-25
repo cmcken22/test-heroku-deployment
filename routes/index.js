@@ -23,13 +23,13 @@ const users = [];
 router.get('/', checkAuthenticated, (req, res) => {
   console.log('GET /');
   // res.render('login.ejs');
-  res.render('index.ejs', { name: 'conner' });
+  res.render('index', { name: 'conner' });
   // res.render('index.ejs');
 })
 
 router.get('/login', (req, res) => {
   console.log('GET /login');
-  res.render('login.ejs');
+  res.render('login');
 })
 
 router.post('/login', passport.authenticate('local', {
@@ -45,7 +45,7 @@ router.get('/redirect-to-react', (req, res) => {
 
 router.get('/register', checkNotAuthenticated, (req, res) => {
   console.log('GET /register');
-  res.render('register.ejs');
+  res.render('register');
 })
 
 router.post('/register', checkNotAuthenticated, async (req, res) => {
