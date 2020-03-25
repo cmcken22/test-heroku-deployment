@@ -18,8 +18,6 @@ function checkNotAuthenticated(req, res, next) {
 }
 
 // API Routes
-router.use("/api", apiRoutes);
-
 const users = [];
 
 router.get('/', (req, res) => {
@@ -73,7 +71,10 @@ router.delete('/logout', (req, res) => {
 // router.use(function(req, res) {
 //   res.sendFile(path.join(__dirname, "../client/public/index.html"));
 // });
-router.get('*', (request, response) => {
+
+router.use("/api", apiRoutes);
+
+router.get('/*', (request, response) => {
   console.log('GET *', path.join(__dirname, 'client/build', 'index.html'));
 	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });

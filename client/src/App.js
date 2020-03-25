@@ -15,7 +15,7 @@ class App extends Component {
             <h2>Welcome to MyNewsNow REACT</h2>
           </div>
           <Switch>
-            <Route exact path="/" component={Startscrape} />
+            <Route exact path="/test" component={Startscrape} />
           </Switch>
         </div>
       </Router>
