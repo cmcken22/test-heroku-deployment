@@ -10,7 +10,9 @@ const session = require('express-session');
 const methodOverride = require('method-override');
 const path = require('path');
 
-require('dotenv').config()
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
 function checkAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
@@ -61,10 +63,12 @@ app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname, '/public')))
 
 app.get('/', (req, res) => {
+  console.log('GET /');
   res.render('index.ejs', { name: req.user.name })
 })
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
+  console.log('GET /login');
   res.render('login.ejs')
 })
 
@@ -75,11 +79,13 @@ app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
 }))
 
 app.get('/redirect-to-react', (req, res) => {
+  console.log('GET /redirect-to-react');
   res.redirect('http://localhost:3000');
 });
 
 app.get('/register', checkNotAuthenticated, (req, res) => {
-  res.render('register.ejs')
+  console.log('GET /register');
+  res.render('register.ejs');
 })
 
 app.post('/register', checkNotAuthenticated, async (req, res) => {
@@ -95,13 +101,12 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
   } catch {
     res.redirect('/register')
   }
-})
+});
 
 app.delete('/logout', (req, res) => {
   req.logOut()
   res.redirect('/login')
-})
-
+});
 
 app.use(routes);
 
