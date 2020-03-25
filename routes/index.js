@@ -77,8 +77,6 @@ router.use("/api", apiRoutes);
 
 router.get('/*', (req, res) => {
   console.log('GET *', path.resolve(__dirname, '../client/build/index.html'));
-  // const bundle = path.resolve(__dirname, ''../client/build/index.html');
-  // res.sendFile(bundle);
 	res.sendFile(path.resolve(__dirname, '../client/build/index.html'));
 });
 

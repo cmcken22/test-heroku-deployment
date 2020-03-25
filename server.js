@@ -46,8 +46,6 @@ initializePassport(
   id => users.find(user => user.id === id)
 )
 
-// const users = []
-
 app.set('view-engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 app.use(flash());
@@ -61,53 +59,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride('_method'));
 
-// app.use(express.static(path.join(__dirname, '/public')));
-
-// app.get('/', (req, res) => {
-//   console.log('GET /');
-//   res.render('index.ejs', { name: req.user.name })
-// })
-
-// app.get('/login', (req, res) => {
-//   console.log('GET /login');
-//   res.render('login.ejs');
-// })
-
-// app.post('/login', passport.authenticate('local', {
-//   successRedirect: '/redirect-to-react',
-//   failureRedirect: '/login',
-//   failureFlash: true
-// }))
-
-// app.get('/redirect-to-react', (req, res) => {
-//   console.log('GET /redirect-to-react');
-//   res.redirect('http://localhost:3000');
-// });
-
-// app.get('/register', checkNotAuthenticated, (req, res) => {
-//   console.log('GET /register');
-//   res.render('register.ejs');
-// })
-
-// app.post('/register', checkNotAuthenticated, async (req, res) => {
-//   try {
-//     const hashedPassword = await bcrypt.hash(req.body.password, 10)
-//     users.push({
-//       id: Date.now().toString(),
-//       name: req.body.name,
-//       email: req.body.email,
-//       password: hashedPassword
-//     })
-//     res.redirect('/login')
-//   } catch {
-//     res.redirect('/register')
-//   }
-// });
-
-// app.delete('/logout', (req, res) => {
-//   req.logOut()
-//   res.redirect('/login')
-// });
 
 app.get('/test', (req, res) => {
   console.log('GET /test');
@@ -120,11 +71,6 @@ app.get('/test2', (req, res) => {
 });
 
 app.use(routes);
-
-// // Database configuration
-// var databaseUrl = "mynewsnow";
-// var collections = ["Article"];
-
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mynewsnow", {
